@@ -10,20 +10,39 @@ public class RegistrationPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
     @FindBy (xpath = "//input[@id='user_email']")
-    public WebElement email;
+    public WebElement emailBox;
 
     @FindBy (xpath = "//input[@class='wcfm-text wcfm_email_verified_input']")
-    public WebElement verificationCode;
+    public WebElement verificationCodeBox;
 
     @FindBy (xpath = "//input[@id='passoword']")
-    public WebElement password;
+    public WebElement passwordBox;
 
     @FindBy (xpath = "//input[@id='confirm_pwd']")
-    public WebElement confirmPassword;
+    public WebElement confirmPasswordBox;
 
     @FindBy (xpath = "//*[text()='Email: This field is required.']")
     public WebElement emailRequired;
 
-    @FindBy (xpath = "//input[@type='submit']")
+    @FindBy (xpath = "//input[@id='wcfm_membership_register_button']")
     public WebElement registerButton;
+
+    @FindBy (xpath = "//button[@class='btn-rds icon-btn bg-theme click-to-copy']")
+    public WebElement tempEmailAccountName;
+
+    @FindBy (xpath = "//button[@class='refresh-countdown']")
+    public WebElement tempEmailRefreshButton;
+
+    @FindBy (xpath = "(//a[@class='viewLink title-subject'])[2]")
+    public WebElement tempEmailInboxFirstEmail;
+
+    @FindBy (xpath = "//div[@id='body_content_inner']")
+    public WebElement emailContent;
+
+    @FindBy (xpath = "//div[@style='display: block;']")
+    public WebElement verificationCodeSentMessage;
+
+    @FindBy (xpath = "//*[text()='Welcome to Pearly Market!']")
+    public WebElement welcomeText;
 }
+
