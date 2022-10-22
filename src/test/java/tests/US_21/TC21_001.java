@@ -30,52 +30,66 @@ public class TC21_001 {
        satış raporlarının yer aldığını test eder.
      */
 
-    MyAccountPage myAccount;
-    StoreManagerPage storeManager;
-    ReportsPage reports;
+    MyAccountPage myAccountPage;
+    StoreManagerPage storeManagerPage;
+    ReportsPage reportsPage;
     Actions actions;
 
     @Test
     public void testReports() {
-        myAccount = new MyAccountPage();
-        storeManager = new StoreManagerPage();
+        myAccountPage = new MyAccountPage();
+        storeManagerPage = new StoreManagerPage();
         actions = new Actions(Driver.getDriver());
-        reports = new ReportsPage();
+        reportsPage = new ReportsPage();
         ReusableMethods.myAccount();
-        myAccount.storeMan.click();
+        myAccountPage.storeMan.click();
         ReusableMethods.waitFor(3);
-        ReusableMethods.scrollIntoView(reports.followers);
+        ReusableMethods.scrollIntoView(reportsPage.followers);
         ReusableMethods.waitFor(2);
-        reports.reports.click();
+        reportsPage.reports.click();
         ReusableMethods.waitFor(2);
 
-        reports.yearReports.click();
+        reportsPage.yearReports.click();
         ReusableMethods.waitFor(5);
-        List<WebElement> salesReports = reports.salesNumbersList;
+        List<WebElement> salesReports = reportsPage.salesNumbersList;
         for (WebElement w: salesReports
              ) {
             Assert.assertTrue(w.isDisplayed());
         }
 
-        reports.lastMonthReports.click();
+        reportsPage.lastMonthReports.click();
         ReusableMethods.waitFor(5);
         for (WebElement w: salesReports
         ) {
             Assert.assertTrue(w.isDisplayed());
         }
 
-        reports.thisMonthReports.click();
+        reportsPage.thisMonthReports.click();
         ReusableMethods.waitFor(5);
         for (WebElement w: salesReports
         ) {
             Assert.assertTrue(w.isDisplayed());
         }
-        reports.lastSevenDaysReports.click();
+        reportsPage.lastSevenDaysReports.click();
         ReusableMethods.waitFor(5);
         for (WebElement w: salesReports
         ) {
             Assert.assertTrue(w.isDisplayed());
         }
+
+        reportsPage.customDateReports.click();
+        ReusableMethods.waitFor(5);
+        ReusableMethods.scrollIntoView(reportsPage.articles);
+        ReusableMethods.waitFor(3);
+        reportsPage.twelveOfOctober2022.click();
+        ReusableMethods.waitFor(1);
+        reportsPage.twentySevenOfOctober2022.click();
+        ReusableMethods.waitFor(3);
+        for (WebElement w: salesReports
+        ) {
+            Assert.assertTrue(w.isDisplayed());
+        }
+
 
 
 
