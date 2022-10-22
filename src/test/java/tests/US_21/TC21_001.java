@@ -89,11 +89,5 @@ public class TC21_001 {
         ) {
             Assert.assertTrue(w.isDisplayed());
         }
-
-
-
-
-
-
     }
 }
