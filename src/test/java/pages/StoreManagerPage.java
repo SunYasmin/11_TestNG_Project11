@@ -6,10 +6,12 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class StoreManagerPage {
-    public StoreManagerPage() {
+    public StoreManagerPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
     @FindBy(xpath = "//*[@class='wcfmfa fa-cube']")
     public WebElement products;
+
+
 }
