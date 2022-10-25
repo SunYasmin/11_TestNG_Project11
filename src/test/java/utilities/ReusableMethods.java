@@ -6,14 +6,12 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import pages.CartPage;
+import pages.*;
 import pages.HomePage;
-import pages.MyAccountPage;
-import pages.HomePage;
-import pages.RegistrationPage;
 
 
 import pages.CartPage;
@@ -237,7 +235,47 @@ public class ReusableMethods {
 
 
 
+    //===============Shipping Opsiyonu ==================//
+    public static void shipping(){
+        Actions actions=new Actions(Driver.getDriver());
+        DeryaPage storeManager=new DeryaPage();
+        ProductsPage productsPage=new ProductsPage();
 
+        //Product bolumunde Shipping Opsiyonunun bulundugu bolume iner
+        //Shipping butonuna tiklar
+        ReusableMethods.scrollIntoView(storeManager.shippingBolumu);
+        ReusableMethods.waitFor(2);
+        storeManager.shipping.click();
+
+        //Weight (kg) textbox'ina data bilgisini girer
+        storeManager.weight.sendKeys("3");
+
+        //Dimensions (cm)  textbox'ina sirasiyla data bilgilerini girer
+        actions.sendKeys(Keys.TAB).
+                sendKeys("30").
+                sendKeys(Keys.TAB).
+                sendKeys("50").
+                sendKeys(Keys.TAB).
+                sendKeys("15").perform();
+
+        //Processing Time tiklar ve teslimat suresi belirlenir
+        storeManager.processingTime.click();
+        ReusableMethods.waitFor(2);
+
+
+        WebElement ddm = Driver.getDriver().findElement(By.xpath("//*[@id='_wcfmmp_processing_time']"));
+        Select select= new Select(ddm);
+        select.selectByIndex(3); //1-3 business days secti
+        ReusableMethods.waitFor(2);
+        ddm.click();
+        ReusableMethods.waitFor(5);
+        storeManager.submit.submit();
+        ReusableMethods.waitFor(10);
+        storeManager.productSuccessfullyPublished.isDisplayed();
+        ReusableMethods.waitFor(2);
+
+
+    }
 
 
 
