@@ -1,6 +1,7 @@
 package tests.US_01;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
@@ -10,29 +11,33 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC01_005 {
+import java.util.List;
+
+public class TC01_017 {
     /*
-    Vendor, url'ye gider
-    Vendor, register butonuna tıklar
-    Vendor, açılan ekranda become a vendor linkine tıklar
-    Vendor, yeni bir sekme açarak geçici email sitesi url'sine gider
-    Vendor, geçici email sitesinden yeni  bir email adresi alır.
-    Vendor, Email kutusuna tıklar.
-    Vendor, Email kutusuna, geçici email sitesinden aldığı email adresini girer.
-    Vendor, Verification Code kutusuna tıklar.
-    Vendor "Verification code sent to your email:" uyarısının çıktığını görür.
-    Vendor, diğer sekmede geçici email sitesine gidip sayfadaki refresh butonuna tıklar.
-    Vendor, geçici email sitesine gelen Verification Code'u alır.
-    Vendor, aldığı kodu, kayıt sayfasındaki Verification Code kutusuna girer
-    Vendor, Password kutusuna tıklar.
-    Vendor, güçlü password girer.
-    Vendor, Confirm Password kutusuna tıklar
-    Vendor güçlü password girer
-    Vendor register butonunu tıklar
-    Vendor, register yapılabildiğini test eder.
+    1) Vendor, url'ye gider
+    2) Vendor, register butonuna tıklar
+    3) Vendor, açılan ekranda become a vendor linkine tıklar
+    4) Vendor, email kutusuna tıklar.
+    5) Vendor, yeni sekmede geçici email sitesi url'sine gider
+    6) Vendor, geçici email sitesinden yeni bir e-mail alır.
+    7) Vendor, email kutusuna, geçici email sitesinden aldığı email adresini girer girer
+    8) Vendor, Verification Code kutusuna tıklar.
+    9) Vendor "Verification code sent to your email:" uyarısının çıktığını görür.
+    10) Vendor, geçici email sitesine gider, sayfayı yeniler ve gönderilen Verification Code'u alır.
+    11) Vendor, Verification Code kutusuna tıklar ve verification code’u girer
+    12) Vendor, password kutusuna tıklar.
+    13) Vendor, geçerli password girer.
+    14) Vendor, Confirm Password kutusuna tıklar
+    15) Vendor geçerli password girer
+    16) Vendor register butonunu tıklar
+    17) Vendor, register yapılabildiğini görür
+    18) Vendor, diğer sekmede geçici email adresine gider ve sayfayı yeniler
+    19) Vendor, geçici email sitesine "[Pearly Market] Successfully Registered" başlıklı emailin geldiğini test eder.
      */
     RegistrationPage registrationPage;
     Actions actions;
+
     @Test
     public void testValidEmail() {
         ReusableMethods.becomeAVendor();
@@ -62,6 +67,20 @@ public class TC01_005 {
         ReusableMethods.waitFor(2);
         registrationPage.registerButton.click();
         ReusableMethods.waitFor(2);
-        Assert.assertTrue(registrationPage.registrationSuccessfullyCompleted.isDisplayed());
+        Driver.getDriver().switchTo().window(hashCodeSecondTab);
+        registrationPage.tempEmailRefreshButton.click();
+        ReusableMethods.waitFor(5);
+        registrationPage.tempEmailRefreshButton.click();
+        ReusableMethods.waitFor(5);
+        String actualPearlyMarketMessage = "";
+        List<WebElement> emailTitles = registrationPage.emailTitleList;
+        for (WebElement w:emailTitles
+             ) {
+            actualPearlyMarketMessage+=w.getText();
+        }
+        System.out.println(actualPearlyMarketMessage);
+        String expectedPearlyMarketMessage = "[Pearly Market] Successfully Registered";
+        Assert.assertTrue(actualPearlyMarketMessage.contains(expectedPearlyMarketMessage));
+
     }
 }

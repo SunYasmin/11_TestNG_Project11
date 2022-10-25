@@ -10,26 +10,27 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC01_005 {
+public class TC01_009 {
     /*
-    Vendor, url'ye gider
-    Vendor, register butonuna tıklar
-    Vendor, açılan ekranda become a vendor linkine tıklar
-    Vendor, yeni bir sekme açarak geçici email sitesi url'sine gider
-    Vendor, geçici email sitesinden yeni  bir email adresi alır.
-    Vendor, Email kutusuna tıklar.
-    Vendor, Email kutusuna, geçici email sitesinden aldığı email adresini girer.
-    Vendor, Verification Code kutusuna tıklar.
-    Vendor "Verification code sent to your email:" uyarısının çıktığını görür.
-    Vendor, diğer sekmede geçici email sitesine gidip sayfadaki refresh butonuna tıklar.
-    Vendor, geçici email sitesine gelen Verification Code'u alır.
-    Vendor, aldığı kodu, kayıt sayfasındaki Verification Code kutusuna girer
-    Vendor, Password kutusuna tıklar.
-    Vendor, güçlü password girer.
-    Vendor, Confirm Password kutusuna tıklar
-    Vendor güçlü password girer
-    Vendor register butonunu tıklar
-    Vendor, register yapılabildiğini test eder.
+    1) Vendor, url'ye gider
+    2) Vendor, register butonuna tıklar
+    3) Vendor, açılan ekranda become a vendor linkine tıklar
+    4) Vendor, yeni bir sekme açarak geçici email sitesi url'sine gider
+    5) Vendor, geçici email sitesinden yeni bir email adresi alır.
+    6) Vendor, Email kutusuna tıklar.
+    7) Vendor, Email kutusuna, geçici email sitesinden aldığı email adresini girer.
+    8) Vendor, Verification Code kutusuna tıklar.
+    9) Vendor "Verification code sent to your email:" uyarısının çıktığını görür.
+    10) Vendor, diğer sekmede geçici email sitesine gidip sayfadaki refresh butonuna tıklar.
+    11) Vendor, geçici email sitesine gelen Verification Code'u alır.
+    12) Vendor, aldığı kodu, kayıt sayfasındaki Verification Code kutusuna girer
+    13) Vendor, Password kutusuna tıklar.
+    14) Vendor, güçlü password girer.
+    15) Vendor, Confirm Password kutusuna tıklar
+    16) Vendor güçlü password girer
+    17) Vendor register butonunu tıklar
+    18) Vendor, register yapılabildiğini test eder.
+
      */
     RegistrationPage registrationPage;
     Actions actions;
@@ -65,3 +66,4 @@ public class TC01_005 {
         Assert.assertTrue(registrationPage.registrationSuccessfullyCompleted.isDisplayed());
     }
 }
+
