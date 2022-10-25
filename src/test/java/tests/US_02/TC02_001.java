@@ -3,6 +3,7 @@ package tests.US_02;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC02_001 {
@@ -24,6 +25,7 @@ public class TC02_001 {
         ReusableMethods.scrollIntoView(home.myAccount);
         ReusableMethods.waitFor(2);
         Assert.assertTrue(home.myAccount.isDisplayed());
+        Driver.closeDriver();
     }
 
 }

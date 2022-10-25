@@ -3,6 +3,7 @@ package tests.US_01;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC01_001 {
@@ -18,5 +19,6 @@ public class TC01_001 {
         ReusableMethods.becomeAVendor();
         home = new HomePage();
         Assert.assertTrue(home.vendorRegistration.isDisplayed());
+        Driver.closeDriver();
     }
 }

@@ -38,26 +38,8 @@ public class TC01_015 {
     @Test
     public void testWeakPassword() {
         ReusableMethods.becomeAVendor();
-        String hashCodeFirstTab = Driver.getDriver().getWindowHandle();
-        Driver.getDriver().switchTo().newWindow(WindowType.TAB);
-        Driver.getDriver().get(ConfigReader.getProperty("temporaryMailUrl"));
-        String hashCodeSecondTab = Driver.getDriver().getWindowHandle();
         registrationPage = new RegistrationPage();
-        registrationPage.tempEmailAccountName.click();
-        Driver.getDriver().switchTo().window(hashCodeFirstTab);
-        registrationPage.emailBox.click();
-        actions = new Actions(Driver.getDriver());
-        actions.keyDown(Keys.CONTROL).sendKeys("v").perform();
-        actions.keyUp(Keys.CONTROL).perform();
-        registrationPage.verificationCodeBox.click();
-        String verificationCodeSentWarning = "Verification code sent to your email";
-        Assert.assertTrue(registrationPage.verificationCodeSentMessage.getText().contains(verificationCodeSentWarning));
-        Driver.getDriver().switchTo().window(hashCodeSecondTab);
-        registrationPage.tempEmailRefreshButton.click();
-        ReusableMethods.waitFor(5);
-        String verificationCode = registrationPage.tempEmailInboxFirstEmail.getText().replaceAll("\\D", "");
-        Driver.getDriver().switchTo().window(hashCodeFirstTab);
-        registrationPage.verificationCodeBox.sendKeys(verificationCode);
+        ReusableMethods.getVerificationCode();
         registrationPage.passwordBox.sendKeys(ConfigReader.getProperty("weakPassword"));
         registrationPage.confirmPasswordBox.sendKeys(ConfigReader.getProperty("weakPassword"));
         ReusableMethods.scrollIntoView(registrationPage.registerButton);
@@ -65,5 +47,6 @@ public class TC01_015 {
         registrationPage.registerButton.click();
         ReusableMethods.waitFor(2);
         Assert.assertTrue(registrationPage.registerButton.isDisplayed());
+        Driver.quitDriver();
     }
 }

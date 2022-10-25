@@ -3,6 +3,7 @@ package tests.US_02;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MyAccountPage;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC02_004 {
@@ -26,5 +27,6 @@ public class TC02_004 {
         Assert.assertTrue(myAccount.supportTickets.isDisplayed());
         Assert.assertTrue(myAccount.followings.isDisplayed());
         Assert.assertTrue(myAccount.logoutUnderDashboard.isDisplayed());
+        Driver.closeDriver();
     }
 }

@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.RegistrationPage;
 import utilities.ConfigReader;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC01_004 {
@@ -33,5 +34,6 @@ public class TC01_004 {
         registrationPage.registerButton.click();
         ReusableMethods.waitFor(1);
         Assert.assertTrue(registrationPage.emailRequired.isDisplayed());
+        Driver.closeDriver();
     }
 }

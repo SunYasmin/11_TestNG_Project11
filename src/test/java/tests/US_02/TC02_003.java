@@ -59,5 +59,6 @@ public class TC02_003 {
         ReusableMethods.waitFor(3);
         ReusableMethods.getScreenshot("NoAppointments");
         Assert.assertTrue(myAccountLinksStr.contains(expectedStr), "Appointments linki bulunamadı");
+        Driver.closeDriver();
     }
 }

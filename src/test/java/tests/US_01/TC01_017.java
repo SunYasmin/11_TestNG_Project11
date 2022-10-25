@@ -81,6 +81,7 @@ public class TC01_017 {
         System.out.println(actualPearlyMarketMessage);
         String expectedPearlyMarketMessage = "[Pearly Market] Successfully Registered";
         Assert.assertTrue(actualPearlyMarketMessage.contains(expectedPearlyMarketMessage));
+        Driver.quitDriver();
 
     }
 }

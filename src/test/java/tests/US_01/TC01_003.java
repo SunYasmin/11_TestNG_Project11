@@ -3,6 +3,7 @@ package tests.US_01;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.RegistrationPage;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC01_003 {
@@ -23,5 +24,6 @@ public class TC01_003 {
         registrationPage.emailBox.click();
         registrationPage.passwordBox.click();
         Assert.assertTrue(registrationPage.emailRequired.isDisplayed());
+        Driver.closeDriver();
     }
 }
