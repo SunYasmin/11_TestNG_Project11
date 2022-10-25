@@ -11,7 +11,8 @@ import org.testng.Assert;
 import pages.CartPage;
 import pages.HomePage;
 import pages.MyAccountPage;
-
+import pages.HomePage;
+import pages.RegistrationPage;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -190,6 +191,32 @@ public class ReusableMethods {
         home.registerHomePage.click();
         ReusableMethods.waitFor(1);
         home.becomeAVendor.click();
+    }
+
+    //==========GetVerificationCode=========//
+    public static void getVerificationCode(){
+        Actions actions = new Actions(Driver.getDriver());
+        RegistrationPage registrationPage = new RegistrationPage();
+        String hashCodeFirstTab = Driver.getDriver().getWindowHandle();
+        Driver.getDriver().switchTo().newWindow(WindowType.TAB);
+        Driver.getDriver().get(ConfigReader.getProperty("temporaryMailUrl"));
+        String hashCodeSecondTab = Driver.getDriver().getWindowHandle();
+        registrationPage = new RegistrationPage();
+        registrationPage.tempEmailAccountName.click();
+        Driver.getDriver().switchTo().window(hashCodeFirstTab);
+        registrationPage.emailBox.click();
+        actions = new Actions(Driver.getDriver());
+        actions.keyDown(Keys.CONTROL).sendKeys("v").perform();
+        actions.keyUp(Keys.CONTROL).perform();
+        registrationPage.verificationCodeBox.click();
+        String verificationCodeSentWarning = "Verification code sent to your email";
+        Assert.assertTrue(registrationPage.verificationCodeSentMessage.getText().contains(verificationCodeSentWarning));
+        Driver.getDriver().switchTo().window(hashCodeSecondTab);
+        registrationPage.tempEmailRefreshButton.click();
+        ReusableMethods.waitFor(5);
+        String verificationCode = registrationPage.tempEmailInboxFirstEmail.getText().replaceAll("\\D", "");
+        Driver.getDriver().switchTo().window(hashCodeFirstTab);
+        registrationPage.verificationCodeBox.sendKeys(verificationCode);
     }
 
 
