@@ -64,6 +64,11 @@ public class MyAccountPage {
     @FindBy (xpath = "(//*[text()='Logout'])[1]")
     public WebElement logoutUnderDashboard;
 
+    @FindBy(xpath = "(//a[@href='https://pearlymarket.com/shop/'])[1]")
+    public WebElement browseProduct;
+
+    @FindBy(xpath = "//*[@class='btn btn-dark btn-rounded btn-icon-right continue-shopping mb-4 mt-6']")
+    public WebElement goToShop;
 
 
 
