@@ -45,5 +45,6 @@ public class TC01_005 {
         registrationPage.registerButton.click();
         ReusableMethods.waitFor(2);
         Assert.assertTrue(registrationPage.registrationSuccessfullyCompleted.isDisplayed());
+        Driver.quitDriver();
     }
 }

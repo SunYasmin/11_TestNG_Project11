@@ -5,11 +5,14 @@ import org.openqa.selenium.WindowType;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import pages.HomePage;
 import pages.RegistrationPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import java.io.IOException;
 
 public class TC01_010 {
     /*
@@ -36,34 +39,18 @@ public class TC01_010 {
     HomePage homepage;
     Actions actions;
     @Test
-    public void testGoodPassword01() {
+    public void testGoodPassword01() throws IOException {
         ReusableMethods.becomeAVendor();
-        String hashCodeFirstTab = Driver.getDriver().getWindowHandle();
-        Driver.getDriver().switchTo().newWindow(WindowType.TAB);
-        Driver.getDriver().get(ConfigReader.getProperty("temporaryMailUrl"));
-        String hashCodeSecondTab = Driver.getDriver().getWindowHandle();
         registrationPage = new RegistrationPage();
-        registrationPage.tempEmailAccountName.click();
-        Driver.getDriver().switchTo().window(hashCodeFirstTab);
-        registrationPage.emailBox.click();
-        actions = new Actions(Driver.getDriver());
-        actions.keyDown(Keys.CONTROL).sendKeys("v").perform();
-        actions.keyUp(Keys.CONTROL).perform();
-        registrationPage.verificationCodeBox.click();
-        String verificationCodeSentWarning = "Verification code sent to your email";
-        Assert.assertTrue(registrationPage.verificationCodeSentMessage.getText().contains(verificationCodeSentWarning));
-        Driver.getDriver().switchTo().window(hashCodeSecondTab);
-        registrationPage.tempEmailRefreshButton.click();
-        ReusableMethods.waitFor(5);
-        String verificationCode = registrationPage.tempEmailInboxFirstEmail.getText().replaceAll("\\D", "");
-        Driver.getDriver().switchTo().window(hashCodeFirstTab);
-        registrationPage.verificationCodeBox.sendKeys(verificationCode);
+        ReusableMethods.getVerificationCode();
         registrationPage.passwordBox.sendKeys(ConfigReader.getProperty("goodPassword01"));
         registrationPage.confirmPasswordBox.sendKeys(ConfigReader.getProperty("goodPassword01"));
         ReusableMethods.scrollIntoView(registrationPage.registerButton);
         ReusableMethods.waitFor(2);
         registrationPage.registerButton.click();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(3);
+        ReusableMethods.getScreenshot("GoodPasswordSuccessfulRegistration01  ");
         Assert.assertFalse(registrationPage.registrationSuccessfullyCompleted.isDisplayed(), "Registration sayfasında kalması gerekirken kayıt başarılı oldu");
+        Driver.quitDriver();
     }
 }

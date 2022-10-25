@@ -56,7 +56,10 @@ public class RegistrationPage {
     @FindBy (xpath = "//div[@class='inbox-dataList']")
     public List<WebElement> emailTitleList;
 
-    @FindBy (xpath = "//*[text()='Anladım']")
+    @FindBy (xpath = "//div[@class='wcfm-message wcfm-error']")
+    public WebElement existingEmailWarningText;
+
+    @FindBy (xpath = "//body//div//div//span//a[2]")
     public WebElement cookies;
 
     @FindBy (xpath = "//*[text()='Oturum açın']")
@@ -64,6 +67,9 @@ public class RegistrationPage {
 
     @FindBy (xpath = "//input[@type='email']")
     public WebElement uniqueEmailBox;
+
+    @FindBy (xpath = "//*[text()='Sonraki']")
+    public WebElement uniqueEmailNextButton;
 
     @FindBy (xpath = "//input[@type='password']")
     public WebElement uniqueEmailPasswordBox;
@@ -73,5 +79,7 @@ public class RegistrationPage {
 
     @FindBy (xpath = "//*[text()='This Email already exists. Please login to the site and apply as vendor.']")
     public WebElement uniqueEmailWarningText;
+
+
 }
 

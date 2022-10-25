@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.RegistrationPage;
 import utilities.ConfigReader;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC01_007 {
@@ -27,5 +28,6 @@ public class TC01_007 {
         registrationPage.passwordBox.click();
         ReusableMethods.waitFor(3);
         Assert.assertTrue(registrationPage.wrongEmailText.isDisplayed());
+        Driver.closeDriver();
     }
 }

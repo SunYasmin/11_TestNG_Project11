@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.MyAccountPage;
+import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC02_002 {
@@ -33,6 +34,7 @@ public class TC02_002 {
         Assert.assertTrue(myAccount.accountDetails.isDisplayed());
         Assert.assertTrue(myAccount.wishlist.isDisplayed());
         Assert.assertTrue(myAccount.logOut.isDisplayed());
+        Driver.closeDriver();
 
 
     }
