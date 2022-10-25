@@ -36,26 +36,8 @@ public class TC01_005 {
     @Test
     public void testValidEmail() {
         ReusableMethods.becomeAVendor();
-        String hashCodeFirstTab = Driver.getDriver().getWindowHandle();
-        Driver.getDriver().switchTo().newWindow(WindowType.TAB);
-        Driver.getDriver().get(ConfigReader.getProperty("temporaryMailUrl"));
-        String hashCodeSecondTab = Driver.getDriver().getWindowHandle();
+        ReusableMethods.getVerificationCode();
         registrationPage = new RegistrationPage();
-        registrationPage.tempEmailAccountName.click();
-        Driver.getDriver().switchTo().window(hashCodeFirstTab);
-        registrationPage.emailBox.click();
-        actions = new Actions(Driver.getDriver());
-        actions.keyDown(Keys.CONTROL).sendKeys("v").perform();
-        actions.keyUp(Keys.CONTROL).perform();
-        registrationPage.verificationCodeBox.click();
-        String verificationCodeSentWarning = "Verification code sent to your email";
-        Assert.assertTrue(registrationPage.verificationCodeSentMessage.getText().contains(verificationCodeSentWarning));
-        Driver.getDriver().switchTo().window(hashCodeSecondTab);
-        registrationPage.tempEmailRefreshButton.click();
-        ReusableMethods.waitFor(5);
-        String verificationCode = registrationPage.tempEmailInboxFirstEmail.getText().replaceAll("\\D", "");
-        Driver.getDriver().switchTo().window(hashCodeFirstTab);
-        registrationPage.verificationCodeBox.sendKeys(verificationCode);
         registrationPage.passwordBox.sendKeys(ConfigReader.getProperty("strongPassword"));
         registrationPage.confirmPasswordBox.sendKeys(ConfigReader.getProperty("strongPassword"));
         ReusableMethods.scrollIntoView(registrationPage.registerButton);
