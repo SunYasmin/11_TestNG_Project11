@@ -8,11 +8,23 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
 import pages.CartPage;
 import pages.HomePage;
 import pages.MyAccountPage;
 import pages.HomePage;
 import pages.RegistrationPage;
+
+
+import pages.CartPage;
+import pages.HomePage;
+import pages.MyAccountPage;
+
+import pages.HomePage;
+import pages.RegistrationPage;
+
+
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
