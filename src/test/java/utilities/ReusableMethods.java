@@ -1,14 +1,29 @@
 package utilities;
 
 import org.apache.commons.io.FileUtils;
+import org.checkerframework.checker.index.qual.PolyUpperBound;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import pages.CartPage;
+import pages.HomePage;
+import pages.MyAccountPage;
 import pages.HomePage;
 import pages.RegistrationPage;
+
+
+import pages.CartPage;
+import pages.HomePage;
+import pages.MyAccountPage;
+
+import pages.HomePage;
+import pages.RegistrationPage;
+
+
 
 import java.io.File;
 import java.io.IOException;
@@ -216,6 +231,133 @@ public class ReusableMethods {
         registrationPage.verificationCodeBox.sendKeys(verificationCode);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //GO SHOP - CART - SEPET METHODLAR
+
+
+    public static void goShop() {
+        MyAccountPage myAccountPage = new MyAccountPage();
+        ReusableMethods.myAccount();
+        myAccountPage.orders.click();
+        ReusableMethods.scrollIntoView(myAccountPage.goToShop);
+        //ReusableMethods.hover(myAccountPage.goShop);
+        ReusableMethods.waitFor(3);
+        Assert.assertTrue(myAccountPage.goToShop.isDisplayed());
+        myAccountPage.goToShop.click();
+        ReusableMethods.waitFor(3);
+
+    }
 
 
 }
