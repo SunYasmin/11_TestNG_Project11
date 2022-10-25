@@ -12,9 +12,17 @@ import org.testng.Assert;
 import pages.CartPage;
 import pages.HomePage;
 import pages.MyAccountPage;
+import pages.HomePage;
+import pages.RegistrationPage;
+
+
+import pages.CartPage;
+import pages.HomePage;
+import pages.MyAccountPage;
 
 import pages.HomePage;
 import pages.RegistrationPage;
+
 
 
 import java.io.File;
