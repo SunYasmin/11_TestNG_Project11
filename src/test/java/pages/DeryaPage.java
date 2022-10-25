@@ -23,8 +23,8 @@ public class DeryaPage {
     @FindBy(xpath = "//*[@id='add_new_product_dashboard']")
     public WebElement addNewButton;
 
-    @FindBy(xpath = "//*[text()='Lego']")
-    public WebElement legoUrun;
+    @FindBy(xpath = "//*[@class='wcfm-tabWrap']")
+    public WebElement shippingBolumu;
 
     @FindBy(xpath = "(//*[@class='page_collapsible_content_holder'])[4]")
     public WebElement shipping;
