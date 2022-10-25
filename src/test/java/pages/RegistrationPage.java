@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class RegistrationPage {
     public RegistrationPage(){
         PageFactory.initElements(Driver.getDriver(), this);
@@ -44,5 +46,32 @@ public class RegistrationPage {
 
     @FindBy (xpath = "//*[text()='Welcome to Pearly Market!']")
     public WebElement welcomeText;
+
+    @FindBy (xpath = "//*[text()='Please provide a valid email address.']")
+    public WebElement wrongEmailText;
+
+    @FindBy (xpath = "//*[text()='Registration Successfully Completed.']")
+    public WebElement registrationSuccessfullyCompleted;
+
+    @FindBy (xpath = "//div[@class='inbox-dataList']")
+    public List<WebElement> emailTitleList;
+
+    @FindBy (xpath = "//*[text()='Anladım']")
+    public WebElement cookies;
+
+    @FindBy (xpath = "//*[text()='Oturum açın']")
+    public WebElement uniqueEmailSignInButton;
+
+    @FindBy (xpath = "//input[@type='email']")
+    public WebElement uniqueEmailBox;
+
+    @FindBy (xpath = "//input[@type='password']")
+    public WebElement uniqueEmailPasswordBox;
+
+    @FindBy (xpath = "//span[@class='bqe']")
+    public WebElement firstEmailTitleText;
+
+    @FindBy (xpath = "//*[text()='This Email already exists. Please login to the site and apply as vendor.']")
+    public WebElement uniqueEmailWarningText;
 }
 
