@@ -31,7 +31,7 @@ public class TC_0002 {
         WebElement downloadable=Driver.getDriver().findElement(By.xpath("//*[@id='is_downloadable']"));
 
         downloadable.click();
-        ReusableMethods.getScreenshot("TC0002");
+        ReusableMethods.getScreenshot02("TC0002");
         Assert.assertTrue(downloadable.isDisplayed());
         Driver.closeDriver();
     }

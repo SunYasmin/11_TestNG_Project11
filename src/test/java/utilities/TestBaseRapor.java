@@ -42,7 +42,7 @@ public abstract class TestBaseRapor {
     @AfterMethod(alwaysRun = true) //Her test methodundan sonra çalışır
     public void tearDownMethod(ITestResult result) throws IOException, IOException {
         if (result.getStatus() == ITestResult.FAILURE) { // eğer testin sonucu başarısızsa
-            String screenshotLocation = ReusableMethods.getScreenshot(result.getName());
+            String screenshotLocation = ReusableMethods.getScreenshot02(result.getName());
             extentTest.fail(result.getName());
             extentTest.addScreenCaptureFromPath(screenshotLocation);
             extentTest.fail(result.getThrowable());
