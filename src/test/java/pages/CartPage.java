@@ -54,10 +54,10 @@ public class CartPage {
     @FindBy(xpath = "//*[.='Coupon Discount']")
     public WebElement couponDiscountYaziWe;
 
-    @FindBy(xpath = "//*[.='Coupon Discount']")
+    @FindBy(xpath = "//a[@class='btn btn-dark btn-rounded btn-icon-left continue-shopping mb-4 mr-auto']")
     public WebElement continueShoppingButton;
 
-    @FindBy(xpath = "//*[.='Coupon Discount']")
+    @FindBy(xpath = "(//*[@href='https://pearlymarket.com/checkout-2/'])[3]")
     public WebElement proceedToCheckoutButton;
 
     @FindBy(xpath = "(//*[.='Shipping'])[2]")
@@ -75,6 +75,9 @@ public class CartPage {
 
     @FindBy(xpath = "//*[@class='cart-empty woocommerce-info']")
     public WebElement cartEmptyYaziWe;
+
+    @FindBy(xpath = "//*[@id='scroll-top']")
+    public WebElement scrollTop;
 
     @FindBy(xpath = "//*[@class='woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received order-success']")
     public WebElement siparisAlindiTesk;
@@ -116,10 +119,59 @@ public class CartPage {
     public WebElement kapidaOdeme;
 
 
+    //Hali
+    @FindBy(xpath = "(//a[@href='https://pearlymarket.com/urun/hali/'])[1]")
+    public WebElement hali;   //sayfa 3 hali
+    //  (//*[@class='attachment-woocommerce_thumbnail size-woocommerce_thumbnail'])[46]
 
+    @FindBy(xpath = "//*[.='98 in stock']")
+    public WebElement haliStok;
 
+    @FindBy(xpath = "(//*[@href='https://pearlymarket.com/urun/hali/'])[2]")
+    public WebElement haliBaslik;   //sayfa 3 hali
 
+    @FindBy(xpath = "(//a[@data-product_id='14880'])[1]")
+    public WebElement haliAddToCart;
+    @FindBy(xpath = "//button[@class='single_add_to_cart_button button alt']")
+    public WebElement haliDetayAddToCart;
 
+    @FindBy(xpath = "(//span[@class='cart-count'])[1]")
+    public WebElement haliDetayCartSimgesi;
+
+    @FindBy(xpath = "(//*[.='2'])[1]")     //    (//*[.='2'])[1]
+    public WebElement haliDetayCarttakiSayi;
+
+    @FindBy(xpath = "//*[@id='quantity_63573c9eb3d88']")
+    public WebElement haliDetayAdetKutusu;
+
+    @FindBy(xpath = "//*[@class='quantity-plus w-icon-plus']")
+    public WebElement haliDetayPlus;
+
+    //Ikili Yastik
+    @FindBy(xpath = "(//*[@class='woocommerce-LoopProduct-link woocommerce-loop-product__link'])[2]")
+    public WebElement ikiliYastik;
+
+    @FindBy(xpath = "//*[@data-product_id='15242']")
+    public WebElement ikiliYastikAddToCartSimgesi;
+
+    //shop
+    @FindBy(xpath = "//*[@class='elementor-widget-wrap elementor-element-populated']")
+    public WebElement shopSayfasiToolBox;
+
+    @FindBy(xpath = "(//*[@type='search'])[1]")
+    public WebElement searchBox;
+
+    @FindBy(xpath = "(//*[@class='woocommerce-cart-form__cart-item cart_item'])[1]")
+    public WebElement cartIlkUrun;
+
+    @FindBy(xpath = "//p[@class='woocommerce-shipping-destination']")
+    public WebElement cartAdresBilgileri;
+
+    @FindBy(xpath = "//*[@name='clear_cart']")
+    public WebElement clearCartButton;
+
+    @FindBy(xpath = "//*[@class='button wc-backward btn btn-rounded btn-dark']")
+    public WebElement reTurnToShop;
 
 
 }

@@ -1,12 +1,10 @@
 package tests.US_04;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.reporters.jq.Main;
 import pages.CartPage;
 import pages.HomePage;
 import pages.MyAccountPage;
@@ -15,39 +13,40 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class TC04_001 {
-
-    /*
-    1_https://pearlymarket.com adresine git
-    2_ "giriş yap" sekmesine tıkla
-    3_ Email kutusuna geçerli email gir
-    4_ password kutusuna geçerli paralo gir
-    5_ "giriş yap" butonuna tıkla
-    6_"Hesabım" sekmesine tıkla
-    7_"Siparişler" butonuna tıkla
-    8_"Ürünlere göz at" butonuna tıkla
-    9_Rastgele 2 urun uzerine gidilerek sepete ekle tiklanir
-    11_"Sepetim" butonuna tıkla
-    12_"Sepeti Görüntüle" butonuna tıkla
-    13_Ürünlerin sepette görüldügünü test et
-    14_"Ürün" "Fiyat" "Miktar"  "Ara Toplam"  yazisinin görüldüğünü test et */
+public class TC04_007 {
+//1_https://pearlymarket.com adresine gidilir
+    //2_ "giriş yap" sekmesine tıklanir
+    //3_ Email kutusuna geçerli email girilir
+    //4_ password kutusuna geçerli paralo girilir
+    //5_ "giriş yap" butonuna tıklanir
+    //6_"Hesabım" sekmesine tıklanir
+    //7_"Siparişler" butonuna tıklanir
+    //8_"Go Shop" butonuna tıklanir
+    //9_5 urun icin sepete ekle ikonuna tıklanir
+    //10_"Sepetim" butonuna tıklanir
+    //11_"Sepeti Görüntüle" butonuna tıklanir
+    //12_Ürünlerin sepette görüldügünü test etnir
+    //13_Shipping ve adres bilgilerinin gorunurlugu test edilir
 
 
-    MyAccountPage myAccountPage;
-    HomePage homePage;
-    CartPage cartPage;
-    Actions actions;
-    JavascriptExecutor jse;
+    HomePage homePage = new HomePage();
+    MyAccountPage myAccountPage = new MyAccountPage();
+    Actions actions = new Actions(Driver.getDriver());
+
+    CartPage cartPage = new CartPage();
+
 
     @Test
-    public void testCase01() throws InterruptedException {
-        MyAccountPage myAccountPage = new MyAccountPage();
-        HomePage homePage = new HomePage();
-        Actions actions = new Actions(Driver.getDriver());
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+    public void testCase04() throws InterruptedException {
 
-
-        ReusableMethods.goShop();
+        ReusableMethods.myAccount();
+        ReusableMethods.waitFor(4);
+        myAccountPage.orders.click();
+        ReusableMethods.waitFor(3);
+        ReusableMethods.scrollIntoView(myAccountPage.goToShop);
+        ReusableMethods.waitFor(3);
+        myAccountPage.goToShop.click();
+        ReusableMethods.waitFor(4);
 
         actions.moveToElement(cartPage.ikiliYastikAddToCartSimgesi).perform();
         ReusableMethods.waitFor(4);
@@ -62,9 +61,6 @@ public class TC04_001 {
         actions.moveToElement(cartPage.haliDetayAddToCart).perform();
         ReusableMethods.waitFor(4);
         cartPage.haliDetayAddToCart.click();
-
-
-
         ReusableMethods.waitFor(6);
         String cartUrunSayisiStr = cartPage.haliDetayCarttakiSayi.getText();
         String expctdSepUrunSayisi = "2";
@@ -77,10 +73,8 @@ public class TC04_001 {
         WebElement haliAdetKutusu = cartPage.haliDetayAdetKutusu;
 
         Thread.sleep(1000);
-
-
         actions.moveToElement(cartPage.haliDetayPlus).perform();
-        int sayac=0;
+        int sayac = 0;
         for (int i = 0; i < 105; i++) {
 
             cartPage.haliDetayPlus.click();
@@ -88,7 +82,7 @@ public class TC04_001 {
 
         }
         String sayacStr = String.valueOf(sayac);
-        System.out.println("Hali click sayisi :"+sayac);
+        System.out.println("Hali click sayisi :" + sayac);
         ReusableMethods.waitFor(4);
         ekle.click();
         ReusableMethods.waitFor(4);
@@ -123,6 +117,14 @@ public class TC04_001 {
             Assert.assertTrue(urunBilgileri.get(i).isDisplayed());
             count++;
         }
+
+
+        //TC07 Shipping bilgileri
+
+        ReusableMethods.waitFor(3);
+        Assert.assertTrue(cartPage.shippingBilgileri.isDisplayed());
+        Assert.assertTrue(cartPage.cartTotals.isDisplayed());
+        Assert.assertTrue(cartPage.subTotal.isDisplayed());
 
     }
 }
