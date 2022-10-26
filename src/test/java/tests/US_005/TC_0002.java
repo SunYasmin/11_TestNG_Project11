@@ -34,5 +34,6 @@ public class TC_0002 {
         downloadable.click();
         ReusableMethods.getScreenshot("TC0002", downloadable);
         Assert.assertTrue(downloadable.isDisplayed());
+        Driver.closeDriver();
     }
 }
