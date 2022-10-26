@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CesurPage;
-import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
@@ -25,14 +24,14 @@ public class TC_0002 {
 
         WebElement virtual=Driver.getDriver().findElement(By.xpath("//*[@id='is_virtual']"));
         virtual.click();
-        ReusableMethods.getScreenshot("TC0002", virtual);
+        ReusableMethods.getScreenshot02("TC0002");
         Assert.assertTrue(virtual.isDisplayed());
 
 
         WebElement downloadable=Driver.getDriver().findElement(By.xpath("//*[@id='is_downloadable']"));
 
         downloadable.click();
-        ReusableMethods.getScreenshot("TC0002", downloadable);
+        ReusableMethods.getScreenshot02("TC0002");
         Assert.assertTrue(downloadable.isDisplayed());
         Driver.closeDriver();
     }

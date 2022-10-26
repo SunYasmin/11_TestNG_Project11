@@ -13,17 +13,17 @@ import utilities.ReusableMethods;
 
 public class TC01_008 {
     /*
-    Vendor, url'ye gider
-    Vendor, register butonuna tıklar
-    Vendor, açılan ekranda become a vendor linkine tıklar
-    Vendor email kutusuna daha önceden kullanılmış, geçerli bir email girer.
-    Vendor, Verification Code kutusuna, verification code'u girer
-    Vendor password kutusuna tıklar
-    Vendor password'ü girer
-    Vendor, Confirm Password kutusuna tıklar
-    Vendor, geçerli password'ü tekrar girer
-    Vendor, Register butonuna tıklar.
-    Vendor, "This Email already exists. Please login to the site and apply as vendor." uyarısının çıktığını test eder.
+    1) Vendor, url'ye gider
+    2) Vendor, register butonuna tıklar
+    3) Vendor, açılan ekranda become a vendor linkine tıklar
+    4) Vendor email kutusuna daha önceden kullanılmış, geçerli bir email girer.
+    5) Vendor, Verification Code kutusuna, verification code'u girer
+    6) Vendor password kutusuna tıklar
+    7) Vendor password'ü girer
+    8) Vendor, Confirm Password kutusuna tıklar
+    9) Vendor, geçerli password'ü tekrar girer
+    10) Vendor, Register butonuna tıklar.
+    11) Vendor, "This Email already exists. Please login to the site and apply as vendor." uyarısının çıktığını test eder.
 
      */
     RegistrationPage registrationPage;
