@@ -91,6 +91,8 @@ public class ProductsPage {
     @FindBy (xpath = "//input[@id='minorderqtytr']")
     public WebElement minOrderQty;
 
+    @FindBy (xpath = "//*[text()='Product Successfully Published.']")
+    public WebElement productSuccessfullyPublished;
 
 
 
