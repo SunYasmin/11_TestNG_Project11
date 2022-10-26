@@ -4,14 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CesurPage;
+import pages.AddProductPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC_0003 {
 
-    CesurPage fatihpage=new CesurPage();
+    AddProductPage fatihpage=new AddProductPage();
     @Test
     public void productTitle() throws InterruptedException {
 
