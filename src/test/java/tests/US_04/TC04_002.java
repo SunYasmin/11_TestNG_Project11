@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.reporters.jq.Main;
 import pages.CartPage;
 import pages.HomePage;
 import pages.MyAccountPage;
@@ -15,22 +14,28 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-public class TC04_001 {
+public class TC04_002 {
 
-    /*
-    1_https://pearlymarket.com adresine git
-    2_ "giriş yap" sekmesine tıkla
-    3_ Email kutusuna geçerli email gir
-    4_ password kutusuna geçerli paralo gir
-    5_ "giriş yap" butonuna tıkla
-    6_"Hesabım" sekmesine tıkla
-    7_"Siparişler" butonuna tıkla
-    8_"Ürünlere göz at" butonuna tıkla
-    9_Rastgele 2 urun uzerine gidilerek sepete ekle tiklanir
-    11_"Sepetim" butonuna tıkla
-    12_"Sepeti Görüntüle" butonuna tıkla
-    13_Ürünlerin sepette görüldügünü test et
-    14_"Ürün" "Fiyat" "Miktar"  "Ara Toplam"  yazisinin görüldüğünü test et */
+    //1_https://pearlymarket.com adresine git
+    //2_ "giriş yap" sekmesine tıkla
+    //3_ Email kutusuna geçerli email gir
+    //4_ password kutusuna geçerli paralo gir
+    //5_ "giriş yap" butonuna tıkla
+    //6_"Hesabım" sekmesine tıkla
+    //7_"Siparişler" butonuna tıkla
+    //8_"Go Shop" butonuna tıkla
+    //9_ 2 urun icin sepete ekle ikonuna tıkla
+    //10_"Sepetim" butonuna tıkla
+    //11_"Sepeti Görüntüle" butonuna tıkla
+    //12_Ürünlerin sepette görüldügünü test et
+    //13_"Ürün" "Fiyat"  "Miktar"  "Ara Toplam"  yazisinin görüldüğünü test et
+    //14_"+(artı)" butonuna tıkla
+    //15_"Sepeti yenile" butonuna tıkla
+    //16_Fiyatın guncellendigini test et
+    //17_Miktarın arttıgını test et
+    //18_"-(eksi)" butonuna tıkla
+    //19_"Sepeti yenile" butonuna tıkla
+    //20_"Miktarın eksildigini test et
 
 
     MyAccountPage myAccountPage;
@@ -40,7 +45,7 @@ public class TC04_001 {
     JavascriptExecutor jse;
 
     @Test
-    public void testCase01() throws InterruptedException {
+    public void testCase02() throws InterruptedException {
         MyAccountPage myAccountPage = new MyAccountPage();
         HomePage homePage = new HomePage();
         Actions actions = new Actions(Driver.getDriver());
@@ -64,7 +69,6 @@ public class TC04_001 {
         cartPage.haliDetayAddToCart.click();
 
 
-
         ReusableMethods.waitFor(6);
         String cartUrunSayisiStr = cartPage.haliDetayCarttakiSayi.getText();
         String expctdSepUrunSayisi = "2";
@@ -80,7 +84,7 @@ public class TC04_001 {
 
 
         actions.moveToElement(cartPage.haliDetayPlus).perform();
-        int sayac=0;
+        int sayac = 0;
         for (int i = 0; i < 105; i++) {
 
             cartPage.haliDetayPlus.click();
@@ -88,7 +92,7 @@ public class TC04_001 {
 
         }
         String sayacStr = String.valueOf(sayac);
-        System.out.println("Hali click sayisi :"+sayac);
+        System.out.println("Hali click sayisi :" + sayac);
         ReusableMethods.waitFor(4);
         ekle.click();
         ReusableMethods.waitFor(4);
@@ -123,6 +127,21 @@ public class TC04_001 {
             Assert.assertTrue(urunBilgileri.get(i).isDisplayed());
             count++;
         }
+
+        ReusableMethods.waitFor(2);
+        cartPage.cartQuantityPlus.click();
+        ReusableMethods.waitFor(1);
+        cartPage.cartQuantityPlus.click();
+        ReusableMethods.waitFor(1);
+        cartPage.cartQuantityMinus.click();
+        ReusableMethods.waitFor(1);
+        ReusableMethods.scrollIntoView(cartPage.updateCartButton);
+        ReusableMethods.waitFor(2);
+        cartPage.updateCartButton.click();
+        ReusableMethods.waitFor(2);
+        Assert.assertTrue(cartPage.cartUpdated.isDisplayed());
+        ReusableMethods.waitFor(4);
+
 
     }
 }
