@@ -1,4 +1,4 @@
-package tests.US_0010;
+package tests.US_10;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;

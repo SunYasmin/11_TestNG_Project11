@@ -1,9 +1,8 @@
-package tests.US_006;
-
+package tests.US_07;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.CesurPage;
@@ -13,31 +12,24 @@ import java.util.List;
 
 
 public class TC_0001 {
-    CesurPage fatihpage=new CesurPage();
+    CesurPage fatihpage = new CesurPage();
     JavascriptExecutor jsx = (JavascriptExecutor) Driver.getDriver();
+    Actions actions = new Actions(Driver.getDriver());
 
     @Test
     public void test01() throws InterruptedException {
-
         ReusableMethods.myAccount();
         fatihpage.storeMan.click();
         fatihpage.products.click();
         fatihpage.addNewButton.click();
-
-        jsx.executeScript("window.scrollBy(0,450)", "");
+        jsx.executeScript("window.scrollBy(0,800)", "");
         Thread.sleep(5000);
+        List<WebElement> list = Driver.getDriver().findElements(By.xpath("//*[@id='product_cats_checklist']"));
+        for (WebElement x : list) {
 
-        List<WebElement> categorie = Driver.getDriver().findElements(By.xpath("//ul[@id='product_cats_checklist']"));
-
-        for (WebElement w : categorie) {
-
-            jsx.executeScript("arguments[0].click();", w);
-            Assert.assertTrue(w.isDisplayed());
+            jsx.executeScript("arguments[0].click();", x);
+            Assert.assertTrue(x.isDisplayed());
 
         }
-
-        Driver.closeDriver();
-
-
     }
 }
