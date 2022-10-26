@@ -48,7 +48,7 @@ public class TC01_014 {
         ReusableMethods.waitFor(2);
         registrationPage.registerButton.click();
         ReusableMethods.waitFor(3);
-        ReusableMethods.getScreenshot("GoodPasswordSuccessfulRegistration05  ");
+        ReusableMethods.getScreenshot02("GoodPasswordSuccessfulRegistration05  ");
         Assert.assertFalse(registrationPage.registrationSuccessfullyCompleted.isDisplayed(), "Registration sayfasında kalması gerekirken kayıt başarılı oldu");
         Driver.closeDriver();
     }

@@ -50,6 +50,6 @@ public class TC_0004 {
         Thread.sleep(15000);
         fatihpage.selectProductButton.click();
         Thread.sleep(5000);
-        ReusableMethods.getScreenshot("TC0004",resimeklee);
+        ReusableMethods.getScreenshot("TC0004");
     }
 }

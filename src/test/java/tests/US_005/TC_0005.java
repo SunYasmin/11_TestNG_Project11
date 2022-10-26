@@ -42,7 +42,7 @@ public class TC_0005 {
 
         ReusableMethods.waitFor(2);
         jsx.executeScript("window.scrollBy(0,450)", "");
-        ReusableMethods.getScreenshot("TC05descriptionVisible",fatihpage.descriptionText);
+        ReusableMethods.getScreenshot("TC05descriptionVisible");
         ReusableMethods.waitFor(2);
         Driver.getDriver().switchTo().defaultContent();
 
