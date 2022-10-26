@@ -4,21 +4,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.FatihPage;
-import pages.HomePage;
-import pages.FatihPage;
-import utilities.ConfigReader;
+import pages.CesurPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-public class TC_0001 {
-FatihPage fatihPage=new FatihPage();
+import java.io.IOException;
 
+public class TC_0001 {
+CesurPage fatihpage=new CesurPage();
     @Test
-    public void urunListem() {
+    public void urunListem() throws IOException {
         ReusableMethods.myAccount();
-        fatihPage.storeManager.click();
-        fatihPage.products.click();
+        fatihpage.storeMan.click();
+        fatihpage.products.click();
+
+
+
 
         WebElement status = Driver.getDriver().findElement(By.xpath("(//*[@class='sorting_disabled'])[4]"));
         Assert.assertTrue(status.isDisplayed());
@@ -31,6 +32,12 @@ FatihPage fatihPage=new FatihPage();
 
         WebElement date = Driver.getDriver().findElement(By.xpath("(//*[@class='sorting'])[4]"));
         Assert.assertTrue(status.isDisplayed());
+
+        ReusableMethods.getScreenshot("US05TC01", status);
+
+        Driver.closeDriver();
+
+
 
 
     }
