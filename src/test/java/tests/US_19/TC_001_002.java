@@ -4,12 +4,12 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-import pages.DeryaPage;
+import pages.ShippingPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC_001_002 {
-    DeryaPage storeManager=new DeryaPage();
+    ShippingPage storeManager=new ShippingPage();
     Actions actions=new Actions(Driver.getDriver());
     SoftAssert softAssert= new SoftAssert();
 
