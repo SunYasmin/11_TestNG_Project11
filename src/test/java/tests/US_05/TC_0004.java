@@ -1,9 +1,9 @@
-package tests.US_005;
+package tests.US_05;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
-import pages.CesurPage;
+import pages.AddProductPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class TC_0004 {
 
-    CesurPage fatihpage=new CesurPage();
+    AddProductPage fatihpage=new AddProductPage();
 
     @Test
     public void resimEkle() throws InterruptedException, AWTException, IOException {
