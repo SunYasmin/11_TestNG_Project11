@@ -234,7 +234,7 @@ public class ReusableMethods {
     //===============Shipping Opsiyonu ==================//
     public static void shipping(){
         Actions actions=new Actions(Driver.getDriver());
-        DeryaPage storeManager=new DeryaPage();
+        ShippingPage storeManager=new ShippingPage();
         ProductsPage productsPage=new ProductsPage();
 
         //Product bolumunde Shipping Opsiyonunun bulundugu bolume iner

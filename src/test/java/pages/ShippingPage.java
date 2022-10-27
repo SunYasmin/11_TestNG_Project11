@@ -7,8 +7,8 @@ import utilities.Driver;
 
 import java.util.List;
 
-public class DeryaPage {
-    public DeryaPage() {
+public class ShippingPage {
+    public ShippingPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
