@@ -5,14 +5,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
-import pages.DeryaPage;
+import pages.ShippingPage;
 import pages.HomePage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC_001_002 {
     HomePage home;
-    DeryaPage storeManager=new DeryaPage();
+    ShippingPage storeManager=new ShippingPage();
     Actions actions =new Actions(Driver.getDriver());
     Select select;
 

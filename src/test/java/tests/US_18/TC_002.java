@@ -3,12 +3,12 @@ package tests.US_18;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.DeryaPage;
+import pages.ShippingPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class TC_002 {
-    DeryaPage storeManager=new DeryaPage();
+    ShippingPage storeManager=new ShippingPage();
 
     @Test(priority = 1)
     public void test2_refundRequest() {

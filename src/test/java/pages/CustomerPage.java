@@ -104,6 +104,9 @@ public class CustomerPage {
     @FindBy(xpath = "//*[contains(text(),'Customer Successfully Saved.')]")
     public WebElement kisiEklendiDogrulama;
 
+    @FindBy(xpath = "(//*[@class='logo'])[1]")
+    public WebElement anaSayfaLink;
+
 
 }
 
