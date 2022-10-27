@@ -35,17 +35,11 @@ public class HomePage {
 
 
 
+    @FindBy(xpath = "//*[.='Sign Out']")
+    public WebElement signOut;
 
-
-
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "//*[@class='w-icon-cart']")
+    public WebElement cartSimgesi;
 
 
 
@@ -82,6 +76,28 @@ public class HomePage {
 
     @FindBy (xpath = "//a[@href='/about-us/']")
     public WebElement aboutUs;
+
+
+
+    @FindBy(xpath = "//*[@class='button checkout wc-forward']")
+    public WebElement acilirPenCheckOut;
+
+    @FindBy(xpath = "//*[.='Billing details']")
+    public WebElement billingDetails;
+
+    @FindBy(xpath = "//*[@id='billing_first_name']")
+    public WebElement billingDetFirstName;
+
+    @FindBy(xpath = "//*[@id='billing_postcode']")
+    public WebElement billingDetZipCode;
+
+    @FindBy(xpath = "(//*[.='Subtotal'])[2]")
+    public WebElement billingSubTotal;
+    @FindBy(xpath = "//*[@id='place_order']")
+    public WebElement placeOrder;
+
+    @FindBy(xpath = "//*[@class='woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received order-success']")
+    public WebElement siprsAlndiTesk;
 
 
 }
