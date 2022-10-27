@@ -36,11 +36,13 @@ public class TC03_005 {
     //14-Biiling Details tam olarak girilir ve Place Order tiklanarak order yapilir
     //15-Siparisiniz alinmistir yazisinin gorunurlugu test edilir
 
-    MyAccountPage myAccountPage;
-    HomePage homePage;
+
+
     CartPage cartPage;
+    HomePage homePage;
     Actions actions;
     JavascriptExecutor jse;
+    MyAccountPage myAccountPage;
 
 
     @Test
@@ -84,23 +86,23 @@ public class TC03_005 {
         ReusableMethods.waitForClickablility(homePage.pearlyMarketYazisi, 5);
         //homePage.pearlyMarketYazisi.click();
 
-        actions.moveToElement(cartPage.cart);
+        actions.moveToElement(homePage.cartSimgesi);
         ReusableMethods.waitFor(3);
-        cartPage.cart.click();
+        homePage.cartSimgesi.click();
         ReusableMethods.waitFor(3);
-        actions.moveToElement(cartPage.checkOut).perform();
+        actions.moveToElement(homePage.acilirPenCheckOut);
         ReusableMethods.waitFor(3);
-        cartPage.checkOut.click();
+        actions.moveToElement(homePage.acilirPenCheckOut).click().perform();
         ReusableMethods.waitFor(6);
         Driver.getDriver().getCurrentUrl();
         ReusableMethods.waitFor(3);
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("checkout"));
         ReusableMethods.waitFor(3);
 
-        Assert.assertTrue(cartPage.billingDetailsYaziWe.isDisplayed());
+        Assert.assertTrue(homePage.billingDetails.isDisplayed());
 
         ReusableMethods.waitFor(3);
-        cartPage.bilDetFirstName.sendKeys("Lale");
+        homePage.billingDetFirstName.sendKeys("Lale");
         actions.sendKeys(Keys.TAB)
                 .sendKeys("Kaya")
                 .sendKeys(Keys.TAB)
@@ -119,8 +121,8 @@ public class TC03_005 {
         //.sendKeys(Keys.ENTER)
         //.sendKeys("İstanbul")
         //.sendKeys(Keys.ENTER).perform();
-        cartPage.bilDetZipCode.clear();
-        cartPage.bilDetZipCode.sendKeys("34387");
+        homePage.billingDetZipCode.clear();
+        homePage.billingDetZipCode.sendKeys("34387");
         actions.sendKeys(Keys.TAB)
                 .sendKeys(Keys.TAB)
                 .sendKeys("5000123456")
@@ -131,17 +133,17 @@ public class TC03_005 {
         Thread.sleep(3000);
 
 
-        Assert.assertTrue(cartPage.subTotal.isDisplayed());
-        Assert.assertTrue(cartPage.billingDetailsYaziWe.isDisplayed());
+        Assert.assertTrue(homePage.billingSubTotal.isDisplayed());
+
         Assert.assertTrue(Driver.getDriver().findElement(By.xpath("//*[@id='payment_method_bacs']")).isSelected());
 
-        ReusableMethods.scrollIntoView(cartPage.placeOrderButton);
+        ReusableMethods.scrollIntoView(homePage.placeOrder);
         ReusableMethods.waitFor(2);
-        Assert.assertTrue(cartPage.placeOrderButton.isEnabled());
+        Assert.assertTrue(homePage.placeOrder.isEnabled());
         ReusableMethods.waitFor(2);
-        cartPage.placeOrderButton.click();
+        homePage.placeOrder.click();
         ReusableMethods.waitFor(3);
-        Assert.assertTrue(cartPage.siparisAlindiTesk.isDisplayed());
+        Assert.assertTrue(homePage.siprsAlndiTesk.isDisplayed());
         Driver.closeDriver();
 
 

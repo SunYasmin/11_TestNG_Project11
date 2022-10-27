@@ -173,5 +173,7 @@ public class CartPage {
     @FindBy(xpath = "//*[@class='button wc-backward btn btn-rounded btn-dark']")
     public WebElement reTurnToShop;
 
+    @FindBy(xpath = "//*[@class='button checkout wc-forward']")  //acilir pencere checkout
+    public WebElement checkOut2;
 
 }
