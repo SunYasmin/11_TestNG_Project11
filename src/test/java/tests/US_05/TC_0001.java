@@ -33,7 +33,7 @@ AddProductPage fatihpage=new AddProductPage();
         WebElement date = Driver.getDriver().findElement(By.xpath("(//*[@class='sorting'])[4]"));
         Assert.assertTrue(status.isDisplayed());
 
-        ReusableMethods.getScreenshot("US05TC01", status);
+        ReusableMethods.getScreenshot02("US05TC01");
 
         Driver.closeDriver();
 

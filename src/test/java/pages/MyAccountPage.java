@@ -74,5 +74,56 @@ public class MyAccountPage {
 
 
 
+    @FindBy(xpath = "(//p[@class='text-uppercase text-center mb-0'])[5]")
+    public WebElement wishlistLink;
+
+    @FindBy(xpath = "//tr//td")
+    public List<WebElement> orderAllCell;
+
+    @FindBy(xpath = "//td[@class='woocommerce-orders-table__cell woocommerce-orders-table__cell-order-number']")
+    public List<WebElement> orderNumberText;
+
+    @FindBy(xpath = "//tbody//tr")
+    public List<WebElement> wishList;
+
+    @FindBy(xpath = "//tbody//td")
+    public List<WebElement> wishlistAllCell;
+
+    @FindBy(xpath = "//td[@class='product-name']")
+    public List<WebElement> wishCellText;
+
+    @FindBy(xpath = "//tbody//tr")
+    public List<WebElement> adresList;
+
+    @FindBy(xpath = "//tr//td")
+    public List<WebElement> addressAllCell;
+
+    @FindBy(xpath = "//input[@id='account_first_name']")
+    public WebElement firstnameBox;
+
+    @FindBy(xpath = "//input[@id='account_last_name']")
+    public WebElement lastnameBox;
+
+    @FindBy(xpath = "//input[@id='account_display_name']")
+    public WebElement displayNameBox;
+
+    @FindBy(xpath = "//input[@id='account_email']")
+    public WebElement eMailBox;
+
+    @FindBy(xpath = "//button[@name='save_account_details']")
+    public WebElement saveChangesButton;
+
+    @FindBy(xpath = "//*[text()='Not right now']")
+    public WebElement notRightNow;
+
+    @FindBy(xpath = "//button[@value='SUBSCRIBE']")
+    public WebElement subscribe;
+
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement accountDetailsChanged;
+
+
+
+
 
 }

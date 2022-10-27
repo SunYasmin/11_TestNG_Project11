@@ -57,7 +57,7 @@ public class TC02_003 {
                 .sendKeys(Keys.ARROW_DOWN)
                 .sendKeys(Keys.ARROW_DOWN).perform();
         ReusableMethods.waitFor(3);
-        ReusableMethods.getScreenshot("NoAppointments");
+        ReusableMethods.getScreenshot02("NoAppointmentSection");
         Assert.assertTrue(myAccountLinksStr.contains(expectedStr), "Appointments linki bulunamadı");
         Driver.closeDriver();
     }

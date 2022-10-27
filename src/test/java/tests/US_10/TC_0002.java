@@ -31,7 +31,7 @@ public class TC_0002 {  AddProductPage fatihpage = new AddProductPage();
         WebElement selectAll2= Driver.getDriver().findElement(By.xpath("//button[@class='button wcfm_add_attribute_term wcfm_select_all_attributes']"));
 
         selectAll2.click();
-        ReusableMethods.getScreenshot("US_0010_TC_0001", selectAll2);
+        ReusableMethods.getScreenshot02("US_0010_TC_0001");
 
 
     }

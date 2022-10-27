@@ -32,7 +32,7 @@ public class TC_0001 {
         WebElement selectAll= Driver.getDriver().findElement(By.xpath("//*[@class='button wcfm_add_attribute_term wcfm_select_all_attributes']"));
 
         selectAll.click();
-        ReusableMethods.getScreenshot("US_0010_TC_0001", selectAll);
+        ReusableMethods.getScreenshot02("US_0010_TC_0001");
 
 
     }

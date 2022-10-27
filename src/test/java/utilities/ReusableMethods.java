@@ -1,7 +1,6 @@
 package utilities;
 
 import org.apache.commons.io.FileUtils;
-import org.checkerframework.checker.index.qual.PolyUpperBound;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -14,11 +13,8 @@ import pages.*;
 import pages.HomePage;
 
 
-import pages.CartPage;
-import pages.HomePage;
 import pages.MyAccountPage;
 
-import pages.HomePage;
 import pages.RegistrationPage;
 
 
@@ -238,7 +234,7 @@ public class ReusableMethods {
     //===============Shipping Opsiyonu ==================//
     public static void shipping(){
         Actions actions=new Actions(Driver.getDriver());
-        DeryaPage storeManager=new DeryaPage();
+        ShippingPage storeManager=new ShippingPage();
         ProductsPage productsPage=new ProductsPage();
 
         //Product bolumunde Shipping Opsiyonunun bulundugu bolume iner
@@ -394,6 +390,56 @@ public class ReusableMethods {
         Assert.assertTrue(myAccountPage.goToShop.isDisplayed());
         myAccountPage.goToShop.click();
         ReusableMethods.waitFor(3);
+
+    }
+
+    public static String getScreenshot02(String name) throws IOException {
+        // naming the screenshot with the current date to avoid duplication
+        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+        // TakesScreenshot is an interface of selenium that takes the screenshot
+        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
+        File source = ts.getScreenshotAs(OutputType.FILE);
+        // full path to the screenshot location
+        String target = System.getProperty("user.dir") + "/target/Screenshots/" + name + date + ".png";
+        File finalDestination = new File(target);
+        // save the screenshot to the path given
+        FileUtils.copyFile(source, finalDestination);
+        return target;
+    }
+
+
+    //=======Valid Registration======//
+    public static void validRegistration(){
+
+        RegistrationPage registrationPage=new RegistrationPage();
+        Actions actions=new Actions(Driver.getDriver());
+        String hashCodeFirstTab = Driver.getDriver().getWindowHandle();
+        Driver.getDriver().switchTo().newWindow(WindowType.TAB);
+        Driver.getDriver().get(ConfigReader.getProperty("temporaryMailUrl"));
+        String hashCodeSecondTab = Driver.getDriver().getWindowHandle();
+        registrationPage.tempEmailAccountName.click();
+        Driver.getDriver().switchTo().window(hashCodeFirstTab);
+        registrationPage.emailBox.click();
+        actions.keyDown(Keys.CONTROL).sendKeys("v").perform();
+        actions.keyUp(Keys.CONTROL).perform();
+        registrationPage.verificationCodeBox.click();
+        String verificationCodeSentWarning = "Verification code sent to your email";
+        Assert.assertTrue(registrationPage.verificationCodeSentMessage.getText().contains(verificationCodeSentWarning));
+        Driver.getDriver().switchTo().window(hashCodeSecondTab);
+        registrationPage.tempEmailRefreshButton.click();
+        ReusableMethods.waitFor(5);
+        String verificationCode = registrationPage.tempEmailInboxFirstEmail.getText().replaceAll("\\D", "");
+        Driver.getDriver().switchTo().window(hashCodeFirstTab);
+        registrationPage.verificationCodeBox.sendKeys(verificationCode);
+        registrationPage.passwordBox.sendKeys(ConfigReader.getProperty("strongPassword"));
+        registrationPage.confirmPasswordBox.sendKeys(ConfigReader.getProperty("strongPassword"));
+        ReusableMethods.scrollIntoView(registrationPage.registerButton);
+        ReusableMethods.waitFor(2);
+        registrationPage.registerButton.click();
+        ReusableMethods.waitFor(3);
+        Assert.assertTrue(registrationPage.welcomeText.isDisplayed());
+        ReusableMethods.waitFor(1);
+
 
     }
 
