@@ -3,7 +3,7 @@
 <suite name="istenen class'lari calistirma">
     <test name="classlar">
         <classes>
-            <class name="tests.US_03.TC03_006"/>
+            <class name="tests.US_03.TC03_007"/>
         </classes>
     </test>
 </suite>
