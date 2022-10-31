@@ -48,7 +48,7 @@ public class TC01_010 {
         ReusableMethods.scrollIntoView(registrationPage.registerButton);
         ReusableMethods.waitFor(2);
         registrationPage.registerButton.click();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(5);
         ReusableMethods.getScreenshot02("GoodPasswordSuccessfulRegistration01  ");
         Assert.assertFalse(registrationPage.registrationSuccessfullyCompleted.isDisplayed(), "Registration sayfasında kalması gerekirken kayıt başarılı oldu");
         Driver.quitDriver();

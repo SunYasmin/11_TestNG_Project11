@@ -45,7 +45,7 @@ public class TC01_014 {
         registrationPage.passwordBox.sendKeys(ConfigReader.getProperty("goodPassword05"));
         registrationPage.confirmPasswordBox.sendKeys(ConfigReader.getProperty("goodPassword05"));
         ReusableMethods.scrollIntoView(registrationPage.registerButton);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(5);
         registrationPage.registerButton.click();
         ReusableMethods.waitFor(3);
         ReusableMethods.getScreenshot02("GoodPasswordSuccessfulRegistration05  ");

@@ -1,18 +1,18 @@
-package tests.US_0010;
+package tests.US_10;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
-import pages.CesurPage;
+import pages.AddProductPage;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
 import java.io.IOException;
 
 public class TC_0001 {
-    CesurPage fatihpage = new CesurPage();
+    AddProductPage fatihpage = new AddProductPage();
     JavascriptExecutor jsx = (JavascriptExecutor) Driver.getDriver();
     Actions actions = new Actions(Driver.getDriver());
 
